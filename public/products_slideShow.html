@@ -1,0 +1,53 @@
+<!-- Image Background Page Header, on Desktop -->
+<!-- Note: The background image is set within the business-casual.css file. -->
+<header class="business-header hidden-xs">
+    <div class="container">
+    </br>
+      <div class="row">
+          <div class="col-lg-12">
+              <h1 class="tagline">Description of the Company</h1>
+          </div>
+        </div>
+    </div>
+</header>
+<div class="row" id="products">
+  <!-- Products Slide Show, on Desktop -->
+<div class="col-md-8 col-md-offset-2 hidden-xs">
+  <slick init-onload=true data="products" lazy-load="ondemand" slides-to-show="3" slides-to-scroll="1">
+  <div ng-repeat="product in products"><img ng-src= "{{product.src}}" class=
+  "img-responsive" ng-click = "showOneProduct($index)"/></div>
+  </slick>
+</div>
+
+<!-- Bunch of Products Slide Show, on Mobile Devices -->
+<div class="col-md-6 col-md-offset-2 visible-xs">
+  <slick init-onload=true data="thumbnails" slides-to-show="1" slides-to-scroll="1" autoplay = true style="margin-top: -58px; height: 260px; width: 458px">
+  <div ng-repeat="productCat in thumbnails"><img ng-src= "{{productCat.src}}" class=
+  "img-responsive" display= "block" align= "middle" style="margin: auto; margin-top: 100px; height: 250px"
+  ng-click = "showOneProduct($index)"/></div>
+</slick>
+</div>
+
+<!-- Hot Products, on Mobile Devices -->
+<div class="col-md-5 col-md-offset-3 visible-xs" style="padding: 15px">
+  <div><img class= "img-responsive" src="images/new.jpg" style="margin-top: 46px; height: 150px; width: 600px"/></div>
+  <div class="panel panel-info" ng-repeat="hotProduct in hotProducts">
+    <div class="panel-heading text-center" style="background-color: #FF5722; color: #fff">{{hotProduct.name}}</div>
+    <div class="panel-body">
+      <img ng-src= "{{hotProduct.src}}" class=
+      "img-responsive" display= "block" align= "middle" style="margin: auto; margin-top: 100px; height: 250px"
+      ng-click = "showOneProduct($index)"/>
+    </div>
+  </div>
+</div>
+
+<div class="foot visible-xs" id = "contactUs" style="background-color: #f5f5f5; text-align: center; padding: 50px 0">
+  <div class="link" style="margin:0px auto 30px">
+    <a href="/">首页 |</a>
+    <a href="#"> 会员中心 |</a>
+    <a href="#"> 常见问题</a>
+  </div>
+      <p class="copy">© 2017 上海分尚网络科技有限公司<br>沪ICP备13016979号</p>
+</div>
+
+</div>

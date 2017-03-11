@@ -1,0 +1,50 @@
+<!-- Show interested product -->
+<div class="container" id="oneProduct" style="margin-top: 80px">
+    <div class="item  col-md-5 col-md-offset-3">
+        <div class="thumbnail">
+            <img class="img-responsive" ng-src="{{oneProduct.src}}" alt="{{oneProduct.name}}" />
+            <div class="caption">
+                <h4 class="group inner list-group-item-heading">
+                  {{oneProduct.name}}
+                </h4>
+                <p class="group inner list-group-item-text">
+                    {{oneProduct.description}}
+                </p>
+                <div class="container">
+                  <div class="row">
+                      <div class="col">
+                        <p class="lead text-right" style="margin-right: 30px">价格：    <kbd>{{oneProduct.price}} (¥)</kbd></p>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-success pull-right" style="margin-right: 25px">
+                      感兴趣
+                      <span class="glyphicon glyphicon-heart"></span>
+                    </button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+        <img src="../images/products/{{oneProduct.name}}_Intro01.jpg" alt="Lights" style="width:100%">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="../images/products/{{oneProduct.name}}_Intro02.jpg" alt="Lights" style="width:100%">
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="../images/products/{{oneProduct.name}}_Intro03.jpg" alt="Lights" style="width:100%">
+      </div>
+    </div>
+  </div>
+</div>

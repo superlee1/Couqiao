@@ -1,0 +1,45 @@
+doctype html
+html(ng-app='webApp')
+  head
+    base(href='/')
+    meta(charset='utf-8')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+    title 凑巧网
+    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/font-awesome-4.7.0/css/font-awesome.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/bower_components/slick-carousel/slick/slick.css')
+    link(rel='stylesheet', href='/bower_components/slick-carousel/slick/slick-theme.css')
+    script(src='/javascripts/jquery-3.1.1.min.js')
+    script(src='/javascripts/angular.min.js')
+    script(src='/bower_components/slick-carousel/slick/slick.js')
+    script(src='/bower_components/angular-slick/dist/slick.js')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //
+      if lt IE 9
+      script(src='https://oss.maxcdn.com/..s/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/..s/respond.js/1.4.2/respond.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascripts/angular-route.min.js')
+    script(type='text/javascript', src='/javascripts/core.js')
+    script(type='text/javascript', src='/javascripts/controllers.js')
+  body#page-top.controller(data-spy='scroll', data-target='#navibar', data-offset='50', ng-controller='mainController')
+    div
+      nav#navibar.navbar.navbar-default.navbar-fixed-top
+        .container-fluid
+          // Brand and toggle get grouped for better mobile display
+          .navbar-header
+            button.btn.btn-sm(style='font-size: 19px; float: right; margin-right: 15px; margin-top: 8px; background-color: transparent')
+              span.glyphicon.glyphicon-user(style='')
+            a.navbar-brand(href='/')
+              | Couqiao.me
+              // img(src='/images/logo_couqiao.png' style="width: 45px; margin-left: -14px; margin-top: -11px")
+            form.navbar-form.navbar-left(style='width: 40%; float: right; padding: 0px; margin-right: 15px')
+              .input-group
+                input.form-control(type='text', placeholder='商品搜索')
+                .input-group-btn
+                  button.btn.btn-default(type='submit')
+                    i.glyphicon.glyphicon-search
+          // /.navbar-collapse
+        // /.container-fluid
+      div(ng-view='')

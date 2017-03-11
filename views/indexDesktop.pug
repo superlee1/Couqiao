@@ -1,0 +1,128 @@
+doctype html
+html(ng-app='webApp')
+  head
+    base(href='/')
+    meta(charset='utf-8')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+    title 凑巧网
+    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/font-awesome-4.7.0/css/font-awesome.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/bower_components/slick-carousel/slick/slick.css')
+    link(rel='stylesheet', href='/bower_components/slick-carousel/slick/slick-theme.css')
+    link(rel='stylesheet', href='/stylesheets/home.css')
+    script(src='/javascripts/jquery-3.1.1.min.js')
+    script(src='/javascripts/angular.min.js')
+    script(src='/bower_components/slick-carousel/slick/slick.js')
+    script(src='/bower_components/angular-slick/dist/slick.js')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/..s/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/..s/respond.js/1.4.2/respond.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascripts/angular-route.min.js')
+    script(type='text/javascript', src='/javascripts/core.js')
+    script(type='text/javascript', src='/javascripts/controllers.js')
+  body#page-top.controller(data-spy='scroll', data-target='#navibar', data-offset='50', ng-controller='mainController')
+    div
+      nav#navibar.navbar.navbar-inverse.navbar-fixed-top
+        .container-fluid
+          // Brand and toggle get grouped for better mobile display
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') CouQiao.Me
+          // Collect the nav links, forms, and other content for toggling
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li
+                a.page-scroll(href='#products') 新品上架
+              li
+                a.page-scroll(href='#subscribe') 如何购买
+              li
+                a.page-scroll(href='#germanProducts') 商品种类
+              li
+                a.page-scroll(href='#contactUs') 联系我们
+            form.navbar-form.navbar-left
+              .input-group
+                input.form-control(type='text', placeholder='商品搜索')
+                .input-group-btn
+                  button.btn.btn-default(type='submit')
+                    i.glyphicon.glyphicon-search
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='#')
+                  span.glyphicon.glyphicon-log-in
+                  |  登录
+          // /.navbar-collapse
+        // /.container-fluid
+      div(ng-view='')
+      #subscribe.row(style='margin-top: 50px')
+        .col-md-8.col-md-offset-2
+          .col-xs-3
+            img(src='/images/index-pc-phone.png', width='260px')
+          .col-xs-4
+          .col-xs-4
+            h 扫描二维码
+            p 关注微信公众号，了解最新商品信息。
+            br
+            p 微信快捷购买
+            img(src='/images/index-pc-erw.jpg', width='150px')
+      #germanProducts.row(style='margin-top: 40px')
+        .col-md-4
+          .thumbnail
+            a(href='#', target='_blank')
+              img.img-rounded(ng-src='{{thumbnails[0].src}}', style='width:100%')
+              .caption
+                p Lorem ipsum donec id elit non mi porta gravida at eget metus.
+        .col-md-4
+          .thumbnail
+            a(href='#', target='_blank')
+              img.img-rounded(ng-src='{{thumbnails[1].src}}', alt='Pulpit Rock', style='width:100%')
+              .caption
+                p Lorem ipsum donec id elit non mi porta gravida at eget metus.
+        .col-md-4
+          .thumbnail
+            a(href='#', target='_blank')
+              img.img-rounded(ng-src='{{thumbnails[2].src}}', alt='Pulpit Rock', style='width:100%')
+              .caption
+                p Lorem ipsum donec id elit non mi porta gravida at eget metus.
+      #contactUs.row(style='background-color: #f442a1')
+        .col-md-8.col-md-offset-2
+          h1 CONTACT US
+          p 联系电话：+861330xxxxxxx
+          br
+          p 邮箱：lee@xyz.cn
+          br
+    // Social Footer, Single Coloured
+    // Include Font Awesome Stylesheet in Header
+    .container
+      .text-center
+        a.btn.btn-social-icon.btn-lg.btn-twitter(onclick='')
+          span.fa.fa-twitter(style='font-size: 40px')
+        a.btn.btn-social-icon.btn-lg.btn-dropbox(onclick='')
+          span.fa.fa-dropbox(style='font-size: 40px')
+        a.btn.btn-social-icon.btn-lg.btn-flickr(onclick='')
+          span.fa.fa-flickr(style='font-size: 40px')
+        a.btn.btn-social-icon.btn-lg.btn-pinterest(onclick='')
+          span.fa.fa-pinterest(style='font-size: 40px')
+    script.
+      $(window).scroll(function() {
+      if ($(".navbar").offset().top > 50) {
+      $(".navbar-fixed-top").addClass("top-nav-collapse");
+      } else {
+      $(".navbar-fixed-top").removeClass("top-nav-collapse");
+      }
+      });
+      $(function() {
+      $('a.page-scroll').bind('click', function(event) {
+      var $anchor = $(this);
+      $('html, body').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().top
+      }, 1500, 'easeInOutExpo');
+      event.preventDefault();
+      });
+      });

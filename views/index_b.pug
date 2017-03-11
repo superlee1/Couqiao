@@ -1,0 +1,130 @@
+extends layout
+
+block content
+  header.business-header
+    .container
+      br
+      .row
+        .col-lg-12
+          h1.tagline Description of the Company
+  #products.row
+    .col-md-8.col-md-o1ffset-2.carousel-logo
+      #myCarousel.carousel.slide
+        .carousel-inner
+          .item.active
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[0].src}}')
+          .item
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[1].src}}')
+          .item
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[2].src}}')
+          .item
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[3].src}}')
+          .item
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[0].src}}')
+          .item
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[1].src}}')
+          .item
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[2].src}}')
+          .item
+            .col-xs-3
+              a(href='#')
+                img.img-responsive(ng-src='{{mainContrl.products[3].src}}')
+        a.left.carousel-control(href='#myCarousel', data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left
+        a.right.carousel-control(href='#myCarousel', data-slide='next')
+          span.glyphicon.glyphicon-chevron-right
+  #subscribe.row(style='margin-top: 50px')
+    .col-md-8.col-md-offset-2
+      .col-xs-3
+        img(src='../images/index-pc-phone.png', width='260px')
+      .col-xs-4
+      .col-xs-4
+        h 扫描二维码
+        p 关注微信公众号，了解最新商品信息。
+        br
+        p 微信快捷购买
+        img(src='../images/index-pc-erw.jpg', width='150px')
+  #germanProducts.row(style='margin-top: 40px')
+    .col-md-4
+      .thumbnail
+        a(href='#', target='_blank')
+          img.img-rounded(ng-src='{{mainContrl.thumbnails[0].src}}', style='width:100%')
+          .caption
+            p Lorem ipsum donec id elit non mi porta gravida at eget metus.
+    .col-md-4
+      .thumbnail
+        a(href='#', target='_blank')
+          img.img-rounded(ng-src='{{mainContrl.thumbnails[1].src}}', alt='Pulpit Rock', style='width:100%')
+          .caption
+            p Lorem ipsum donec id elit non mi porta gravida at eget metus.
+    .col-md-4
+      .thumbnail
+        a(href='#', target='_blank')
+          img.img-rounded(ng-src='{{mainContrl.thumbnails[2].src}}', alt='Pulpit Rock', style='width:100%')
+          .caption
+            p Lorem ipsum donec id elit non mi porta gravida at eget metus.
+  #contactUs.row(style='background-color: #f442a1')
+    .col-md-8.col-md-offset-2
+      h1 CONTACT US
+      p 联系电话：+861330xxxxxxx
+      br
+      p 邮箱：lee@xyz.cn
+      br
+  .container
+    .text-center
+      a.btn.btn-social-icon.btn-lg.btn-twitter(onclick='')
+        span.fa.fa-twitter(style='font-size: 40px')
+      a.btn.btn-social-icon.btn-lg.btn-dropbox(onclick='')
+        span.fa.fa-dropbox(style='font-size: 40px')
+      a.btn.btn-social-icon.btn-lg.btn-flickr(onclick='')
+        span.fa.fa-flickr(style='font-size: 40px')
+      a.btn.btn-social-icon.btn-lg.btn-pinterest(onclick='')
+        span.fa.fa-pinterest(style='font-size: 40px')
+    script.
+        $('#myCarousel').carousel({
+        interval: 4000
+        })
+        $('.carousel-logo .item').each(function(){
+        var next = $(this).next();
+        if (!next.length) {
+        next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+        for (var i=0;i<2;i++) {
+        next=next.next();
+        if (!next.length) {
+        next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+        }
+        });
+        $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+        } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        }
+        });
+        $(function() {
+        $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+        scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+        });
+        });
